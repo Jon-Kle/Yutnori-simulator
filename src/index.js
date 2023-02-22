@@ -5,14 +5,6 @@ const pcrossed = 0.02; // Wahrscheinlichkeit für überkreuzte Klötze
 
 let currentNumber, // number that is currently on display
     display, // display element
-    bang1, // animation elements
-    bang2,
-    bang3,
-    bang4,
-    klapper1,
-    klapper2,
-    klapper3,
-    klapper4,
     animating = false, // animation in progress?
     rethrow = false, // if result is 4, 5 or 교차
     sounds = [], // list of all sounds
@@ -24,16 +16,9 @@ let currentNumber, // number that is currently on display
 window.onload = function () {
     // set DOM Element values
     display = document.querySelector('#display');
-    bang1 = document.querySelectorAll('.bang')[0];
-    bang2 = document.querySelectorAll('.bang')[1];
-    bang3 = document.querySelectorAll('.bang')[2];
-    bang4 = document.querySelectorAll('.bang')[3];
-    klapper1 = document.querySelectorAll('.klapper')[0];
-    klapper2 = document.querySelectorAll('.klapper')[1];
-    klapper3 = document.querySelectorAll('.klapper')[2];
-    klapper4 = document.querySelectorAll('.klapper')[3];
+
     // all animation elements
-    all = [bang1, bang2, bang3, bang4, klapper1, klapper2, klapper3, klapper4];
+    animationElements = document.querySelectorAll('.animation')
 
     // import the soundfiles
     for (let i = 1; i <= 18; i++) {
@@ -113,8 +98,9 @@ function generateNumber() {
 function animation() {
     display.innerHTML = ''; // empty the display element
     display.className = ''; // remove highlight
-    all.forEach(function (element) { // start animation of all elements
-        element.className += ' animate';
+    animationElements.forEach(function (element) { // start animation of all elements
+        // element.className += ' animate';
+        element.classList.toggle('animate')
     })
     animating = true; // lock any other action during the time of the animation
     setTimeout(displayResult, 1400); // wait till the animation is over
@@ -136,8 +122,8 @@ function displayResult() {
     } else { // if everything is normal
         rethrow = false;
     }
-    all.forEach(function (element) { // remove animation tag
-        element.className = element.className.replaceAll(' animate', '');
+    animationElements.forEach(function (element) { // remove animation tag
+        element.classList.toggle('animate')
     })
     animating = false; // remove the lock for other actions
 }
@@ -207,11 +193,10 @@ function playerClicked(element) {
 function setActivePlayer(player) {
     // deactivate active player
     if (players.length > 0) {
-        lastActive = document.querySelector('.player.active');
-        lastActive.className = lastActive.className.replaceAll(' active', '');
+        activePlayer.classList.toggle('active')
     }
     // activate new active player
-    player.className += ' active';
+    player.classList.toggle('active')
     activePlayer = player;
 }
 function iteratePlayer(reverse = false) {
@@ -278,5 +263,5 @@ function warnPlayer(player) {
 function revertWarning(player) {
     // remove 1 warning from player
     warnings[player.getAttribute('name')] -= 1;
-    player.innerHTML = player.innerHTML.replace('❌', ' ');
+    player.innerHTML = player.innerHTML.replace('❌', '');
 }
