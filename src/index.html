@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- plus and minus icons by https://www.flaticon.com/authors/dave-gandy -->
+    <!-- g-guelo font by https://www.fontspace.com/wepfont -->
+    <!-- lanecar font by https://www.fontspace.com/viaction-type -->
+    <!-- sounds are custom made -->
+    <meta charset="UTF-8">
+    <meta name="application-name" content="Yutnori sticks simulator">
+    <meta name="author" content="https://github.com/Jon-Kle">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yutnori sticks simulator</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <ul class="players">
+        <label>Spieler:</label><br>
+        <div class="player-buttons">
+            <button id="addPlayer" type="button" onclick="addPlayer()"></button>
+            <button id="removePlayer" type="button" onclick="removePlayer()"></button>
+        </div>
+        <!-- <li class="player active" name="a" onclick="warnPlayer(this)">a    </li> -->
+    </ul>
+    <div id="display">윷놀이</div>
+    <div id="animationContainer">
+        <div class="bang">Bumm!</div>
+        <div class="bang">Peng!</div>
+        <div class="bang">Bang!</div>
+        <div class="bang">Bumm!</div>
+        <div class="klapper">klapper</div>
+        <div class="klapper">klapper</div>
+        <div class="klapper">klapper</div>
+        <div class="klapper">klapper</div>
+    </div>
+    <button id="throw" type="button" onclick="pressThrow()">werfen</button>
+</body>
+
+</html>

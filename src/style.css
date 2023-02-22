@@ -1,0 +1,210 @@
+body {
+    margin: 0px;
+    background-color: rgb(53 48 206);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-user-select: none;/* Safari */
+    -ms-user-select: none;/* IE 10 and IE 11 */
+    user-select: none;/* Standard syntax */
+}
+
+/* Player list */
+.players {
+    position: absolute;
+    left: 2ch;
+    top: 3ch;
+    place-self: start start;
+    display: grid;
+    min-width: 15ch;
+    text-indent: 1ch;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(242, 100%, 70%);
+}
+
+.players label {
+    text-decoration: underline;
+    font-family: 'lanecar';
+    font-size: 23pt;
+    margin-left: -0.5ch;
+    margin-bottom: -1.5ch;
+}
+
+.players li {
+    padding-top: 3px;
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.player.active {
+    background-color: rgb(255 240 0);
+}
+
+.player-buttons button {
+    background-color: transparent;
+    background-size: 2ch;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 3ch;
+    aspect-ratio: 1/1;
+    border: solid;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#addPlayer {
+    background-image: url('../res/img/plus-schwarzes-symbol.png');
+}
+
+#removePlayer {
+    background-image: url('../res/img/minus-symbol.png');
+}
+
+/* Display to show Number */
+#display {
+    color: rgb(255 240 0);
+    position: absolute;
+    top: 20vh;
+    font-size: 40vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#display.colored {
+    color: rgb(222, 6, 117);
+    -webkit-text-stroke: 3pt;
+    -webkit-text-stroke-color: rgb(109, 207, 11);
+}
+
+/* Button */
+#throw {
+    background-color: rgb(109, 207, 11);
+    position: absolute;
+    top: 70vh;
+    font-size: 9vh;
+    font-family: 'lanecar';
+    border-radius: 3vh;
+}
+
+/* Animation */
+#animationContainer {
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+
+.bang {
+    font-family: 'g-guelo';
+    position: absolute;
+    transform: rotate(0deg);
+    opacity: 0;
+    display: none;
+    font-size: 40vw;
+    animation-duration: 0.3s;
+}
+
+.klapper {
+    position: absolute;
+    font-size: 9vw;
+    font-family: 'lanecar';
+    opacity: 0;
+    display: none;
+    animation-duration: 1s;
+}
+
+.animate {
+    animation-timing-function: ease-out;
+    display: block;
+}
+
+.animate:nth-of-type(1) {
+    animation-name: bang;
+    font-size: 10vw;
+    transform:
+        translateX(10%) translateY(20%) rotate(30deg);
+}
+
+.animate:nth-of-type(2) {
+    animation-name: bang;
+    animation-delay: 0.3s;
+    transform:
+        translateX(25%) translateY(-10%) rotate(-15deg);
+    /* display: none; */
+}
+
+.animate:nth-of-type(3) {
+    animation-name: bang;
+    animation-delay: 0.6s;
+    transform:
+        translateX(-10%) translateY(30%) rotate(20deg);
+    /* display: none; */
+}
+
+.animate:nth-of-type(4) {
+    animation-name: bang;
+    animation-delay: 0.8s;
+    transform:
+        translateX(0%) translateY(20%) rotate(-70deg);
+    /* display: none; */
+}
+
+.animate:nth-of-type(5) {
+    animation-name: klapper;
+    animation-delay: 0.4s;
+    transform:
+        translateX(100%) translateY(150%) rotate(10deg);
+}
+
+.animate:nth-of-type(6) {
+    animation-name: klapper;
+    animation-delay: 0.6s;
+    transform:
+        translateX(-100%) translateY(-200%) rotate(-20deg);
+}
+
+.animate:nth-of-type(7) {
+    animation-name: klapper;
+    animation-delay: 0.8s;
+    transform:
+        translateX(100%) translateY(-220%) rotate(45deg);
+}
+
+.animate:nth-of-type(8) {
+    animation-name: klapper;
+    animation-delay: 1s;
+    transform:
+        translateX(-100%) translateY(150%) rotate(10deg);
+}
+
+@keyframes bang {
+    from {
+        opacity: 0.0;
+        font-size: 0vw;
+    }
+
+    50% {
+        opacity: 1;
+        font-size: 25vw;
+    }
+
+    to {
+        opacity: 0;
+        font-size: 15vw;
+    }
+}
+
+@keyframes klapper {
+    from {
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1;
+        font-size: 10vw;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
