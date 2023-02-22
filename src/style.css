@@ -64,6 +64,8 @@ body {
 
 /* Display to show Number */
 #display {
+    background: none;
+    pointer-events: none;
     color: rgb(255 240 0);
     position: absolute;
     top: 20vh;
