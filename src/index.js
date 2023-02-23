@@ -30,12 +30,14 @@ window.onload = function () {
         switch (e.code) {
             case 'ArrowUp': // set player above active
                 if (players.length > 0) {
+                    document.activeElement.blur()
                     dontIterate = true;
                     iteratePlayer(true);
                 }
                 break;
             case 'ArrowDown': // set player below active
                 if (players.length > 0) {
+                    document.activeElement.blur()
                     dontIterate = true;
                     iteratePlayer();
                 }
@@ -151,7 +153,7 @@ function addPlayer() {
     }
 
     // create new player element
-    let playerEntry = document.createElement('li');
+    let playerEntry = document.createElement('div');
     playerEntry.className = 'player';
     playerEntry.setAttribute('name', playerName);
     playerEntry.innerHTML = playerName + ' ';
@@ -160,7 +162,7 @@ function addPlayer() {
         // get reference node for insertion
         let index = Array.prototype.indexOf.call(players, activePlayer);
         let referenceNode;
-        if (index != playerNames.length-1) {
+        if (index != playerNames.length - 1) {
             referenceNode = players[index + 1];
         }
         // referenceNode == undefined => add it in last place
